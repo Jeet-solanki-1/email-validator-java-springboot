@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class EmailValidationResponse{
 	private String email;
 	private boolean syntaxValid;
-	private boolean domaiExists;
+	private boolean domainExists;
 	private String message;
 	private String mxRecords;
 

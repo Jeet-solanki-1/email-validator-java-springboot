@@ -17,8 +17,9 @@ public class EmailValidationController{
 
 	@GetMapping("/email")
 	public ResponseEntity<EmailValidationResponse> validateEmail(@RequestParam String email){
+		
 		try{
-			EmailValidationResponse resp = service.validateEmail(email);
+			EmailValidationResponse resp = service.validateEmail(email.trim());
 			return ResponseEntity.ok(resp);
 		}
 		catch(Exception e){

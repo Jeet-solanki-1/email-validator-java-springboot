@@ -15,7 +15,7 @@ import org.xbill.DNS.Lookup;
 @Service
 public class EmailValidationService{
 	private static final String EMAIL_REGEX=
-	"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+	"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+(\\.[a-zA-Z]{2,})?$";
 	private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
 
 	public EmailValidationResponse validateEmail(String email) throws Exception{
@@ -65,6 +65,7 @@ public class EmailValidationService{
 				return new MXLookupResult(
 					true, "No MX records exists (may still accept email",
 				"A record fallback"
+
 			);
 			}
 			return new MXLookupResult(false, "No mail servers found", null);
